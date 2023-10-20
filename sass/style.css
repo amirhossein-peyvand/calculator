@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "League Spartan", sans-serif;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.main {
+  background-color: hsl(222, 26%, 31%);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.main .calculator {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  row-gap: 1rem;
+  width: clamp(200px, 90%, 50rem);
+}
+.main .calculator .header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.main .calculator .header h1 {
+  color: hsl(0, 0%, 100%);
+  font-size: 2rem;
+}
+.main .calculator .header section {
+  align-items: center;
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
+  display: flex;
+}
+.main .calculator .header section .theme {
+  color: hsl(0, 0%, 100%);
+  letter-spacing: 1px;
+}
+.main .calculator .header section .switch-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  row-gap: 1rem;
+  width: 5.5rem;
+}
+.main .calculator .header section .switch-container div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.6rem;
+  width: 100%;
+}
+.main .calculator .header section .switch-container div span {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.1rem;
+}
+.main .calculator .header section .switch-container .wrapper {
+  display: inline-block;
+  height: 20px;
+  position: relative;
+  width: 100%;
+}
+.main .calculator .header section .switch-container .wrapper input {
+  height: 0;
+  opacity: 0;
+  width: 0;
+}
+.main .calculator .header section .switch-container .wrapper .slider {
+  -webkit-transition: 0.4s;
+  align-items: center;
+  background-color: hsl(223, 31%, 20%);
+  border-radius: 20px;
+  bottom: 0;
+  cursor: pointer;
+  display: flex;
+  left: 0;
+  padding: 0 0.3rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+.main .calculator .header section .switch-container .wrapper .slider:before {
+  -webkit-transition: 0.4s;
+  background-color: hsl(6, 63%, 50%);
+  border-radius: 50%;
+  content: "";
+  height: 13px;
+  position: absolute;
+  transition: 0.4s;
+  width: 13px;
+}
+.main .calculator .screen {
+  background-color: hsl(224, 36%, 15%);
+  border-radius: 5px;
+  color: hsl(0, 0%, 100%);
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  justify-content: flex-end;
+  padding: 0 2rem;
+  min-height: 15vh;
+  text-align: right;
+}
+.main .calculator .keyboard {
+  background-color: hsl(223, 31%, 20%);
+  border-radius: 5px;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 2rem;
+}
+.main .calculator .keyboard button {
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+.main .calculator .keyboard button:hover {
+  opacity: 0.8;
+}
+.main .calculator .keyboard button:not(.del, .reset, .result) {
+  background-color: hsl(30, 25%, 89%);
+  box-shadow: 0 2px 0 1px hsl(28, 16%, 65%);
+  color: hsl(221, 14%, 31%);
+}
+.main .calculator .keyboard .del,
+.main .calculator .keyboard .reset {
+  background-color: hsl(225, 21%, 49%);
+  box-shadow: 0 2px 0 1px hsl(224, 28%, 35%);
+  color: hsl(0, 0%, 100%);
+}
+.main .calculator .keyboard .reset {
+  grid-column: 1/3;
+}
+.main .calculator .keyboard .result {
+  background-color: hsl(6, 63%, 50%);
+  box-shadow: 0 2px 0 1px hsl(6, 70%, 34%);
+  color: hsl(0, 0%, 100%);
+  grid-column: 3/5;
+}
+
+.theme-1 {
+  background-color: hsl(222, 26%, 31%);
+}
+.theme-1 .calculator .header h1 {
+  color: hsl(0, 0%, 100%);
+}
+.theme-1 .calculator .header section .theme {
+  color: hsl(0, 0%, 100%);
+}
+.theme-1 .calculator .header section .switch-container div span {
+  color: hsl(0, 0%, 100%);
+}
+.theme-1 .calculator .header section .switch-container .wrapper .slider {
+  background-color: hsl(223, 31%, 20%);
+}
+.theme-1 .calculator .screen {
+  background-color: hsl(224, 36%, 15%);
+  color: hsl(0, 0%, 100%);
+}
+.theme-1 .calculator .keyboard {
+  background-color: hsl(223, 31%, 20%);
+}
+.theme-1 .calculator .keyboard button:not(.del, .reset, .result) {
+  background-color: hsl(30, 25%, 89%);
+  box-shadow: 0 2px 0 1px hsl(28, 16%, 65%);
+  color: hsl(221, 14%, 31%);
+}
+.theme-1 .calculator .keyboard .del,
+.theme-1 .calculator .keyboard .reset {
+  background-color: hsl(225, 21%, 49%);
+  box-shadow: 0 2px 0 1px hsl(224, 28%, 35%);
+  color: hsl(0, 0%, 100%);
+}
+.theme-1 .calculator .keyboard .result {
+  background-color: hsl(6, 63%, 50%);
+  box-shadow: 0 2px 0 1px hsl(6, 70%, 34%);
+  color: hsl(0, 0%, 100%);
+}
+
+.theme-2 {
+  background-color: hsl(0, 0%, 90%);
+}
+.theme-2 .calculator .header h1 {
+  color: hsl(60, 10%, 19%);
+}
+.theme-2 .calculator .header section .theme {
+  color: hsl(60, 10%, 19%);
+}
+.theme-2 .calculator .header section .switch-container div span {
+  color: hsl(60, 10%, 19%);
+}
+.theme-2 .calculator .header section .switch-container .wrapper .slider {
+  background-color: hsl(0, 5%, 81%);
+}
+.theme-2 .calculator .header section .switch-container .wrapper .slider::before {
+  background-color: hsl(25, 98%, 40%);
+}
+.theme-2 .calculator .screen {
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(60, 10%, 19%);
+}
+.theme-2 .calculator .keyboard {
+  background-color: hsl(0, 5%, 81%);
+}
+.theme-2 .calculator .keyboard button:not(.del, .reset, .result) {
+  background-color: hsl(45, 7%, 89%);
+  box-shadow: 0 2px 0 1px hsl(35, 11%, 61%);
+  color: hsl(60, 10%, 19%);
+}
+.theme-2 .calculator .keyboard .del,
+.theme-2 .calculator .keyboard .reset {
+  background-color: hsl(185, 42%, 37%);
+  box-shadow: 0 2px 0 1px hsl(185, 58%, 25%);
+  color: hsl(0, 0%, 100%);
+}
+.theme-2 .calculator .keyboard .result {
+  background-color: hsl(25, 98%, 40%);
+  box-shadow: 0 2px 0 1px hsl(25, 99%, 27%);
+}
+
+.theme-3 {
+  background-color: hsl(268, 75%, 9%);
+}
+.theme-3 .calculator .header h1 {
+  color: hsl(52, 100%, 62%);
+}
+.theme-3 .calculator .header section .theme {
+  color: hsl(52, 100%, 62%);
+}
+.theme-3 .calculator .header section .switch-container div span {
+  color: hsl(52, 100%, 62%);
+}
+.theme-3 .calculator .header section .switch-container .wrapper .slider {
+  background-color: hsl(268, 71%, 12%);
+}
+.theme-3 .calculator .header section .switch-container .wrapper .slider::before {
+  background-color: hsl(176, 100%, 44%);
+}
+.theme-3 .calculator .screen {
+  background-color: hsl(268, 71%, 12%);
+  color: hsl(52, 100%, 62%);
+}
+.theme-3 .calculator .keyboard {
+  background-color: hsl(268, 71%, 12%);
+}
+.theme-3 .calculator .keyboard button:not(.del, .reset, .result) {
+  background-color: hsl(268, 47%, 21%);
+  box-shadow: 0 2px 0 1px hsl(290, 70%, 36%);
+  color: hsl(52, 100%, 62%);
+}
+.theme-3 .calculator .keyboard .del,
+.theme-3 .calculator .keyboard .reset {
+  background-color: hsl(281, 89%, 26%);
+  box-shadow: 0 2px 0 1px hsl(285, 91%, 52%);
+  color: hsl(0, 0%, 100%);
+}
+.theme-3 .calculator .keyboard .result {
+  background-color: hsl(176, 100%, 44%);
+  box-shadow: 0 2px 0 1px hsl(177, 92%, 70%);
+  color: hsl(198, 20%, 13%);
+}/*# sourceMappingURL=style.css.map */

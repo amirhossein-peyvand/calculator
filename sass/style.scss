@@ -1,0 +1,410 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+
+// ### Theme 1 //
+$very-dark-desaturated-blue-1: hsl(222, 26%, 31%); // (main background)
+$very-dark-desaturated-blue-2: hsl(
+  223,
+  31%,
+  20%
+); // (toggle background, keypad background)
+$very-dark-desaturated-blue-3: hsl(224, 36%, 15%); // (screen background)
+
+$desaturated-dark-blue-1: hsl(225, 21%, 49%); // (key background)
+$desaturated-dark-blue-2: hsl(224, 28%, 35%); // (key shadow)
+$red: hsl(6, 63%, 50%); // (key background, toggle)
+$dark-red: hsl(6, 70%, 34%); // (key shadow)
+$light-grayish-orange: hsl(30, 25%, 89%); // (key background)
+$grayish-orange: hsl(28, 16%, 65%); // (key shadow)
+$very-dark-grayish-blue: hsl(221, 14%, 31%);
+$white: hsl(0, 0%, 100%);
+
+// Theme 2
+$light-gray: hsl(0, 0%, 90%); // (main background)
+$grayish-red: hsl(0, 5%, 81%); // (toggle background, keypad background)
+$very-light-gray: hsl(0, 0%, 93%); // (screen background)
+$dark-moderate-cyan: hsl(185, 42%, 37%); // (key background)
+$very-dark-cyan: hsl(185, 58%, 25%); // (key shadow)
+$orange: hsl(25, 98%, 40%); // (key background, toggle)
+$dark-orange: hsl(25, 99%, 27%); // (key shadow)
+$light-grayish-yellow: hsl(45, 7%, 89%); // (key background)
+$dark-grayish-orange: hsl(35, 11%, 61%); // (key shadow)
+$very-dark-grayish-yellow: hsl(60, 10%, 19%);
+
+// Theme 3
+$very-dark-violet-1: hsl(268, 75%, 9%); // (main background)
+$very-dark-violet-2: hsl(
+  268,
+  71%,
+  12%
+); // (toggle background, keypad background, screen background)
+$dark-violet: hsl(281, 89%, 26%); // (key background)
+$vivid-magenta: hsl(285, 91%, 52%); // (key shadow)
+$pure-cyan: hsl(176, 100%, 44%); // (key background, toggle)
+$soft-cyan: hsl(177, 92%, 70%); // (key shadow)
+$very-dark-violet-3: hsl(268, 47%, 21%); // (key background)
+$dark-magenta: hsl(290, 70%, 36%); // (key shadow)
+$light-yellow: hsl(52, 100%, 62%);
+$very-dark-blue: hsl(198, 20%, 13%);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "League Spartan", sans-serif;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.main {
+  background-color: $very-dark-desaturated-blue-1;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  .calculator {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    row-gap: 1rem;
+    width: clamp(200px, 90%, 50rem);
+
+    .header {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      h1 {
+        color: $white;
+        font-size: 2rem;
+      }
+
+      section {
+        align-items: center;
+        column-gap: 3rem;
+        display: flex;
+
+        .theme {
+          color: $white;
+          letter-spacing: 1px;
+        }
+
+        .switch-container {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 2rem;
+          row-gap: 1rem;
+          width: 5.5rem;
+
+          div {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0.6rem;
+            width: 100%;
+            span {
+              color: $white;
+              font-size: 1.1rem;
+            }
+          }
+
+          .wrapper {
+            display: inline-block;
+            height: 20px;
+            position: relative;
+            width: 100%;
+
+            input {
+              height: 0;
+              opacity: 0;
+              width: 0;
+            }
+
+            .slider {
+              -webkit-transition: 0.4s;
+              align-items: center;
+              background-color: $very-dark-desaturated-blue-2;
+              border-radius: 20px;
+              bottom: 0;
+              cursor: pointer;
+              display: flex;
+              left: 0;
+              padding: 0 0.3rem;
+              position: absolute;
+              right: 0;
+              top: 0;
+              transition: 0.4s;
+            }
+
+            .slider:before {
+              -webkit-transition: 0.4s;
+              // bottom: 4px;
+              // left: 4px;
+              background-color: $red;
+              border-radius: 50%;
+              content: "";
+              height: 13px;
+              position: absolute;
+              transition: 0.4s;
+              width: 13px;
+            }
+          }
+        }
+      }
+    }
+
+    .screen {
+      background-color: $very-dark-desaturated-blue-3;
+      border-radius: 5px;
+      color: $white;
+      font-size: 4rem;
+      display: flex;
+      align-items: center;
+      text-align: right;
+      justify-content: flex-end;
+      padding: 0 2rem;
+      min-height: 15vh;
+      text-align: right;
+    }
+
+    .keyboard {
+      background-color: $very-dark-desaturated-blue-2;
+      border-radius: 5px;
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 2rem;
+
+      button {
+        border-radius: 5px;
+        border: 0;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: 700;
+        padding: 1rem;
+        transition: all 0.2s;
+      }
+
+      button:hover {
+        opacity: 0.8;
+      }
+
+      button:not(.del, .reset, .result) {
+        background-color: $light-grayish-orange;
+        box-shadow: 0 2px 0 1px $grayish-orange;
+        color: $very-dark-grayish-blue;
+      }
+
+      .del,
+      .reset {
+        background-color: $desaturated-dark-blue-1;
+        box-shadow: 0 2px 0 1px $desaturated-dark-blue-2;
+        color: $white;
+      }
+
+      .reset {
+        grid-column: 1/ 3;
+      }
+
+      .result {
+        background-color: $red;
+        box-shadow: 0 2px 0 1px $dark-red;
+        color: $white;
+        grid-column: 3/ 5;
+      }
+    }
+  }
+}
+
+.theme-1 {
+  background-color: $very-dark-desaturated-blue-1;
+
+  .calculator {
+    .header {
+      h1 {
+        color: $white;
+      }
+
+      section {
+        .theme {
+          color: $white;
+        }
+
+        .switch-container {
+          div {
+            span {
+              color: $white;
+            }
+          }
+
+          .wrapper {
+            .slider {
+              background-color: $very-dark-desaturated-blue-2;
+            }
+          }
+        }
+      }
+    }
+
+    .screen {
+      background-color: $very-dark-desaturated-blue-3;
+      color: $white;
+    }
+
+    .keyboard {
+      background-color: $very-dark-desaturated-blue-2;
+
+      button:not(.del, .reset, .result) {
+        background-color: $light-grayish-orange;
+        box-shadow: 0 2px 0 1px $grayish-orange;
+        color: $very-dark-grayish-blue;
+      }
+
+      .del,
+      .reset {
+        background-color: $desaturated-dark-blue-1;
+        box-shadow: 0 2px 0 1px $desaturated-dark-blue-2;
+        color: $white;
+      }
+
+      .result {
+        background-color: $red;
+        box-shadow: 0 2px 0 1px $dark-red;
+        color: $white;
+      }
+    }
+  }
+}
+
+.theme-2 {
+  background-color: $light-gray;
+  .calculator {
+    .header {
+      h1 {
+        color: $very-dark-grayish-yellow;
+      }
+
+      section {
+        .theme {
+          color: $very-dark-grayish-yellow;
+        }
+
+        .switch-container {
+          div {
+            span {
+              color: $very-dark-grayish-yellow;
+            }
+          }
+
+          .wrapper {
+            .slider {
+              background-color: $grayish-red;
+            }
+
+            .slider::before {
+              background-color: $orange;
+            }
+          }
+        }
+      }
+    }
+
+    .screen {
+      background-color: $white;
+      color: $very-dark-grayish-yellow;
+    }
+
+    .keyboard {
+      background-color: $grayish-red;
+
+      button:not(.del, .reset, .result) {
+        background-color: $light-grayish-yellow;
+        box-shadow: 0 2px 0 1px $dark-grayish-orange;
+        color: $very-dark-grayish-yellow;
+      }
+
+      .del,
+      .reset {
+        background-color: $dark-moderate-cyan;
+        box-shadow: 0 2px 0 1px $very-dark-cyan;
+        color: $white;
+      }
+
+      .result {
+        background-color: $orange;
+        box-shadow: 0 2px 0 1px $dark-orange;
+      }
+    }
+  }
+}
+
+.theme-3 {
+  background-color: $very-dark-violet-1;
+  .calculator {
+    .header {
+      h1 {
+        color: $light-yellow;
+      }
+
+      section {
+        .theme {
+          color: $light-yellow;
+        }
+
+        .switch-container {
+          div {
+            span {
+              color: $light-yellow;
+            }
+          }
+
+          .wrapper {
+            .slider {
+              background-color: $very-dark-violet-2;
+            }
+
+            .slider::before {
+              background-color: $pure-cyan;
+            }
+          }
+        }
+      }
+    }
+
+    .screen {
+      background-color: $very-dark-violet-2;
+      color: $light-yellow;
+    }
+
+    .keyboard {
+      background-color: $very-dark-violet-2;
+
+      button:not(.del, .reset, .result) {
+        background-color: $very-dark-violet-3;
+        box-shadow: 0 2px 0 1px $dark-magenta;
+        color: $light-yellow;
+      }
+
+      .del,
+      .reset {
+        background-color: $dark-violet;
+        box-shadow: 0 2px 0 1px $vivid-magenta;
+        color: $white;
+      }
+
+      .result {
+        background-color: $pure-cyan;
+        box-shadow: 0 2px 0 1px $soft-cyan;
+        color: $very-dark-blue;
+      }
+    }
+  }
+}
